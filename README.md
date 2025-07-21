@@ -32,3 +32,8 @@ The slot origin positions for all pieces were extracted from memory, and stick t
 The fastest solution found had multiple starting seeds, but the only valid one was 0xAE398399. It could be reversed enough times so that an initial seed 0x02F7EBEE could be chosen, by setting the date of the DTM to 2029-06-21 23:58:58, in order to reach the starting seed in 3429 rolls. To reach Jigsaw Jitters from startup, it takes 3165 rolls, and the remaining 264 rolls were done by selecting the gray Whomp and backing out six times (44 rolls each). Finally, the Lua input to auto-solve the puzzle in-game was generated in [generate_lua_inputs.py](https://github.com/Freezard/MarioParty4_RNG_Jigsaw_Jitters/blob/main/generate_lua_inputs.py), although it's not entirely accurate so I had to manually adjust input timings.  
 
 The resulting TAS in 41"55 can be found [here](https://youtu.be/1MxhSY2qiK0).
+
+### 40 pieces TAS
+Starting seed was 0xD3BC0D7E. Date was set to 2027-03-15 04:55:09 which initialized with seed 0xDA10F14E. The starting seed could then be reached by selecting the gray Whomp and backing out ten times.  
+
+The resulting TAS in 55"73 can be found [here](https://youtu.be/8Q31RY3D6jA).
