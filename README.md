@@ -4,6 +4,8 @@ I was thinking it would be fun to make an auto-solver for Jigsaw Jitters, an RNG
 This was done on game version GMPE01_01: Rev 1 (USA) and Dolphin 5.0.
 
 ## RNG
+Seed address: 0x801D3D10  
+
 Mario Party 4 uses the [Lehmer RNG](https://en.wikipedia.org/wiki/Lehmer_random_number_generator), specifically the MINSTD version where a = 16807 and m = 2^31 - 1. This means that not every seed in the 2^32 space is valid, and the cycles are somewhat short, usually moving towards common repeating seeds after around 1 million seeds. It also means the initial seed has a big role in which seeds are traversed.  
 
 Here's the decompiled implementation of frand and frandom in [frand.c](https://github.com/mariopartyrd/marioparty4/blob/main/src/game/frand.c), and to advance the RNG one can use this formula: `nextx = 2^32 - (16807 * X % (2^31 - 1))` where X is the current seed. The formula for reversing Lehmer RNG is: `prevx = ainverse * x mod m`. With some adjustments including using two reverse formulas and adding 2m if the result is negative I managed to implement a working version for MP4, seen in [reverse_seed.c](https://github.com/Freezard/MarioParty4_RNG_Jigsaw_Jitters/blob/main/reverse_seed.c).
